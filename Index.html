@@ -1,212 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scrap Buy & Sell - LAKSHAYAM</title>
-    <link rel="shortcut icon" href="https://images.icon-icons.com/1310/PNG/512/recycling_86328.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <!-- Navbar -->
-<nav>
-  <div class="logo">
-    <img src="Img/Logo.jpg" alt="LAKSHYAM - One step towards sustainable world" class="logo-img">
-  </div>
-  <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#buy">Buy Scrap</a></li>
-    <li><a href="#sell">Sell Scrap</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="cart" onclick="toggleCartPopup()">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="cart-count" id="cart-count">0</span>
-  </div>
-</nav>
-    <!-- End of Navbar -->
-    
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1 class="fade-in">Sustainable Scrap Management</h1>
-      <p class="fade-in">Join us in creating a greener future by buying and selling recyclable materials at competitive prices.</p>
-      <a href="#buy" class="cta-button fade-in">Start Recycling Now</a>
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAKSHAYAM - Scrap Buy & Sell</title>
+  <link rel="shortcut icon" href="https://images.icon-icons.com/1310/PNG/512/recycling_86328.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-    <!-- Cart Interface -->
-    <div class="cart-popup" id="cart-popup">
-      <h4><i class="fas fa-shopping-cart"></i> Your Cart</h4>
-      <ul id="cart-items"></ul>
-      <p class="total">Total: ₹<span id="cart-total">0</span></p>
-      <div class="cart-buttons">
-        <button onclick="clearCart()"><i class="fas fa-trash"></i> Clear Cart</button>
-        <button onclick="toggleCartPopup()"><i class="fas fa-times"></i> Close</button>
-        <button class="buy-cart" onclick="proceedToPayment()">
-          <i class="fas fa-credit-card"></i> Proceed to Payment
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="Img/Logo.jpg" alt="LAKSHYAM - One step towards sustainable world" class="logo-img">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#buy">Buy Scrap</a></li>
+      <li><a href="#sell">Sell Scrap</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+   
+      <div class="cart" onclick="toggleCartPopup()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+      </div>
+    </div>
+  </nav>
+  <!-- End of Navbar -->
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="fade-in">Sustainable Scrap Management</h1>
+    <p class="fade-in">Join us in creating a greener future by buying and selling recyclable materials at competitive
+      prices.</p>
+    <a href="#buy" class="cta-button fade-in">Start Recycling Now</a>
+  </section>
+
+  <!-- Cart Interface -->
+  <div class="cart-popup" id="cart-popup">
+    <h4><i class="fas fa-shopping-cart"></i> Your Cart</h4>
+    <ul id="cart-items"></ul>
+    <p class="total">Total: ₹<span id="cart-total">0</span></p>
+    <div class="cart-buttons">
+      <button onclick="clearCart()"><i class="fas fa-trash"></i> Clear Cart</button>
+      <button onclick="toggleCartPopup()"><i class="fas fa-times"></i> Close</button>
+      <button class="buy-cart" onclick="proceedToPayment()">
+        <i class="fas fa-credit-card"></i> Proceed to Payment
+      </button>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <i class="fas fa-check-circle"></i>
+    <span id="notification-message">Item added to cart!</span>
+  </div>
+
+  <!-- Buy Scrap Section -->
+  <section class="buy-section" id="buy">
+    <h2 class="section-title">Buy Scrap Materials</h2>
+    <div class="products">
+      <div class="product-card fade-in">
+        <img src="Img/Plastic.jpg" alt="Plastic Scrap" />
+        <h3>Plastic Scrap</h3>
+        <p>₹100/kg</p>
+        <button onclick="addToCart('Plastic Scrap', 10)">
+          <i class="fas fa-cart-plus"></i> Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card fade-in">
+        <img src="Img/rubber.jpg" alt="Rubber Scrap" />
+        <h3>Rubber Scrap</h3>
+        <p>₹150/kg</p>
+        <button onclick="addToCart('Rubber Scrap', 15)">
+          <i class="fas fa-cart-plus"></i> Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card fade-in">
+        <img src="Img/Metal.jpg" alt="Metal Scrap" />
+        <h3>Metal Scrap</h3>
+        <p>₹250/kg</p>
+        <button onclick="addToCart('Metal Scrap', 25)">
+          <i class="fas fa-cart-plus"></i> Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card fade-in">
+        <img src="Img/ewaste.jpg" alt="E-Waste Scrap" />
+        <h3>E-Waste</h3>
+        <p>₹300/kg</p>
+        <button onclick="addToCart('E-Waste', 30)">
+          <i class="fas fa-cart-plus"></i> Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card fade-in">
+        <img src="Img/paper.jpg" alt="Paper Scrap" />
+        <h3>Paper Scrap</h3>
+        <p>₹50/kg</p>
+        <button onclick="addToCart('Paper Scrap', 5)">
+          <i class="fas fa-cart-plus"></i> Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card fade-in">
+        <img src="Img/glass.jpg" alt="Glass Scrap" />
+        <h3>Glass Scrap</h3>
+        <p>₹80/kg</p>
+        <button onclick="addToCart('Glass Scrap', 8)">
+          <i class="fas fa-cart-plus"></i> Add to Cart
         </button>
       </div>
     </div>
-    
-    <!-- Notification -->
-    <div class="notification" id="notification">
-      <i class="fas fa-check-circle"></i>
-      <span id="notification-message">Item added to cart!</span>
+  </section>
+  <!-- End of Buy Scrap Section -->
+
+
+  <!-- Sell Scrap Section -->
+  <section class="sell-section" id="sell">
+    <h2 class="section-title">Sell Your Scrap</h2>
+    <div class="sell-scrap-form">
+      <form id="sell-scrap-form" onsubmit="handleSellScrap(event)">
+        <label for="scrap-type">Type of Scrap:</label>
+        <select id="scrap-type" name="scrap-type" required>
+          <option value="">Select scrap type</option>
+          <option value="Plastic">Plastic</option>
+          <option value="Rubber">Rubber</option>
+          <option value="Metal">Metal</option>
+          <option value="E-Waste">E-Waste</option>
+          <option value="Paper">Paper</option>
+          <option value="Glass">Glass</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="quantity">Quantity (kg):</label>
+        <input type="number" id="quantity" name="quantity" min="1" required />
+
+        <label for="quality">Quality:</label>
+        <select id="quality" name="quality" required>
+          <option value="High">High (Clean, sorted)</option>
+          <option value="Medium">Medium (Some impurities)</option>
+          <option value="Low">Low (Mixed, dirty)</option>
+        </select>
+
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" name="contact" required />
+
+        <label for="scrap-image">Upload Image of Scrap:</label>
+        <input type="file" id="scrap-image" name="scrap-image" accept="image/*">
+
+        <button type="submit">
+          <i class="fas fa-paper-plane"></i> Submit Offer
+        </button>
+      </form>
     </div>
+  </section>
+  <!-- End of Sell Scrap Section -->
 
-    <!-- Buy Scrap Section -->
-    <section class="buy-section" id="buy">
-      <h2 class="section-title">Buy Scrap Materials</h2>
-      <div class="products">
-        <div class="product-card fade-in">
-          <img src="Img/Plastic.jpg" alt="Plastic Scrap" />
-          <h3>Plastic Scrap</h3>
-          <p>₹10/kg</p>
-          <button onclick="addToCart('Plastic Scrap', 10)">
-            <i class="fas fa-cart-plus"></i> Add to Cart
-          </button>
-        </div>
+  <!-- About Section -->
+  <section class="about-section">
+    <h2 class="section-title">Why Choose LAKSHAYAM?</h2>
+    <div class="features">
+      <div class="feature-card">
+        <i class="fas fa-leaf"></i>
+        <h3>Eco-Friendly</h3>
+        <p>We ensure all materials are processed in an environmentally responsible manner.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-rupee-sign"></i>
+        <h3>Best Prices</h3>
+        <p>We offer competitive prices for both buying and selling scrap materials.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-truck"></i>
+        <h3>Convenient Pickup</h3>
+        <p>We provide pickup services for large quantities of scrap materials.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="product-card fade-in">
-          <img src="Img/rubber.jpg" alt="Rubber Scrap" />
-          <h3>Rubber Scrap</h3>
-          <p>₹15/kg</p>
-          <button onclick="addToCart('Rubber Scrap', 15)">
-            <i class="fas fa-cart-plus"></i> Add to Cart
-          </button>
-        </div>
-
-        <div class="product-card fade-in">
-          <img src="Img/Metal.jpg" alt="Metal Scrap" />
-          <h3>Metal Scrap</h3>
-          <p>₹25/kg</p>
-          <button onclick="addToCart('Metal Scrap', 25)">
-            <i class="fas fa-cart-plus"></i> Add to Cart
-          </button>
-        </div>
-
-        <div class="product-card fade-in">
-          <img src="Img/ewaste.jpg" alt="E-Waste Scrap" />
-          <h3>E-Waste</h3>
-          <p>₹30/kg</p>
-          <button onclick="addToCart('E-Waste', 30)">
-            <i class="fas fa-cart-plus"></i> Add to Cart
-          </button>
-        </div>
-
-        <div class="product-card fade-in">
-          <img src="Img/paper.jpg" alt="Paper Scrap" />
-          <h3>Paper Scrap</h3>
-          <p>₹5/kg</p>
-          <button onclick="addToCart('Paper Scrap', 5)">
-            <i class="fas fa-cart-plus"></i> Add to Cart
-          </button>
-        </div>
-
-        <div class="product-card fade-in">
-          <img src="Img/glass.jpg" alt="Glass Scrap" />
-          <h3>Glass Scrap</h3>
-          <p>₹8/kg</p>
-          <button onclick="addToCart('Glass Scrap', 8)">
-            <i class="fas fa-cart-plus"></i> Add to Cart
-          </button>
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3><i class="fas fa-recycle"></i> LAKSHAYAM</h3>
+        <p>
+          Your trusted partner for buying and selling recyclable scrap materials.
+          Together we can make the world a greener place.
+        </p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-    </section>
-    <!-- End of Buy Scrap Section -->
+      <div class="footer-right">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-envelope"></i> Email:
+          <a href="mailto:support@lakshayam.com">support@lakshayam.com</a>
+        </p>
+        <p><i class="fas fa-phone"></i> Phone: +91 98765 43210</p>
+        <p><i class="fas fa-map-marker-alt"></i> Address: 123 Green Street, Eco City, India - 560001</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 LAKSHAYAM. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- End of Footer -->
 
-    <!-- Sell Scrap Section -->
-    <section class="sell-section" id="sell">
-      <h2 class="section-title">Sell Your Scrap</h2>
-      <div class="sell-scrap-form">
-        <form id="sell-scrap-form">
-          <label for="scrap-type">Type of Scrap:</label>
-          <select id="scrap-type" name="scrap-type" required>
-            <option value="">Select scrap type</option>
-            <option value="Plastic">Plastic</option>
-            <option value="Rubber">Rubber</option>
-            <option value="Metal">Metal</option>
-            <option value="E-Waste">E-Waste</option>
-            <option value="Paper">Paper</option>
-            <option value="Glass">Glass</option>
-            <option value="Other">Other</option>
-          </select>
-          
-          <label for="quantity">Quantity (kg):</label>
-          <input type="number" id="quantity" name="quantity" min="1" required />
-          
-          <label for="quality">Quality:</label>
-          <select id="quality" name="quality" required>
-            <option value="High">High (Clean, sorted)</option>
-            <option value="Medium">Medium (Some impurities)</option>
-            <option value="Low">Low (Mixed, dirty)</option>
-          </select>
-          
-          <label for="contact">Contact Number:</label>
-          <input type="tel" id="contact" name="contact" required />
-          
-          <button type="submit">
-            <i class="fas fa-paper-plane"></i> Submit Offer
-          </button>
-        </form>
-      </div>
-    </section>
-    <!-- End of Sell Scrap Section -->
+  <script src="script.js"></script>
+</body>
 
-    <!-- About Section -->
-    <section class="about-section">
-      <h2 class="section-title">Why Choose LAKSHAYAM?</h2>
-      <div class="features">
-        <div class="feature-card">
-          <i class="fas fa-leaf"></i>
-          <h3>Eco-Friendly</h3>
-          <p>We ensure all materials are processed in an environmentally responsible manner.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-rupee-sign"></i>
-          <h3>Best Prices</h3>
-          <p>We offer competitive prices for both buying and selling scrap materials.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-truck"></i>
-          <h3>Convenient Pickup</h3>
-          <p>We provide pickup services for large quantities of scrap materials.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-      <div class="footer-container">
-        <div class="footer-left">
-          <h3><i class="fas fa-recycle"></i> LAKSHAYAM</h3>
-          <p>
-            Your trusted partner for buying and selling recyclable scrap materials. 
-            Together we can make the world a greener place.
-          </p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-        <div class="footer-right">
-          <h4>Contact Us</h4>
-          <p><i class="fas fa-envelope"></i> Email: 
-            <a href="mailto:support@lakshayam.com">support@lakshayam.com</a>
-          </p>
-          <p><i class="fas fa-phone"></i> Phone: +91 98765 43210</p>
-          <p><i class="fas fa-map-marker-alt"></i> Address: 123 Green Street, Eco City, India - 560001</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 LAKSHAYAM. All rights reserved.</p>
-      </div>
-    </footer>
-    <!-- End of Footer -->
-    
-    <script src="script.js"></script>
-  </body>
 </html>
