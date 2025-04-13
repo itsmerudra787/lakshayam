@@ -1,0 +1,15 @@
+{
+    "name": "lakshayam-website",
+    "version": "1.0.0",
+    "description": "Sustainable world initiative",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Your Name",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.18.2"
+    }
+  }

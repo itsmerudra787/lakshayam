@@ -1,0 +1,192 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Splash Screen Styling */
+  .splash {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(-45deg, #e0f8ea, #c9f1dd, #d7f5ef, #e4fce9);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: opacity 1s ease;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .top-right-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    transition: transform 0.5s ease;
+  }
+  
+  .top-right-image:hover {
+    transform: scale(1.05);
+  }
+  
+  .leaf {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('images/leaf2.png') no-repeat center;
+    background-size: contain;
+    animation: floatLeaf 12s linear infinite;
+    opacity: 1;
+  }
+  
+  .leaf:nth-child(2) { left: 10%; animation-delay: 0s; }
+  .leaf:nth-child(3) { left: 25%; animation-delay: 3s; }
+  .leaf:nth-child(4) { left: 40%; animation-delay: 6s; }
+  .leaf:nth-child(5) { left: 60%; animation-delay: 9s; }
+  .leaf:nth-child(6) { left: 75%; animation-delay: 5s; }
+  
+  @keyframes floatLeaf {
+    0% { top: -50px; transform: rotate(0deg); }
+    100% { top: 110%; transform: rotate(360deg); }
+  }
+  
+  .logo {
+    display: flex;
+    gap: 10px;
+    font-size: 64px;
+    font-weight: bold;
+    color: #2b8a3e;
+    z-index: 1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .logo span {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+  }
+  
+  .logo span:nth-child(1) { animation-delay: 0s; }
+  .logo span:nth-child(2) { animation-delay: 0.1s; }
+  .logo span:nth-child(3) { animation-delay: 0.2s; }
+  .logo span:nth-child(4) { animation-delay: 0.3s; }
+  .logo span:nth-child(5) { animation-delay: 0.4s; }
+  .logo span:nth-child(6) { animation-delay: 0.5s; }
+  .logo span:nth-child(7) { animation-delay: 0.6s; }
+  .logo span:nth-child(8) { animation-delay: 0.7s; }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .tagline {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1.2s;
+    z-index: 1;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Login Page Styling */
+  .login-page {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: url('images/project.jpg') no-repeat center center/cover;
+    color: white;
+    position: relative;
+  }
+  
+  .login-box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ffea;
+    text-align: center;
+    width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px #00ffea;
+  }
+  
+  .login-box h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .login-box input:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00ffea;
+  }
+  
+  .login-box button {
+    padding: 10px 20px;
+    background-color: #00ffea;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .login-box button:hover {
+    background-color: #00e5d1;
+    transform: scale(1.05);
+  }
+  
+  .login-box button:active {
+    transform: scale(0.98);
+  }
+  
+  .login-box p.demo-creds {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+  }

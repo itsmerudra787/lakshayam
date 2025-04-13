@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>checking</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Splash Screen Styling */
+    .splash {
+      height: 100vh;
+      width: 100%;
+      background: linear-gradient(-45deg, #e0f8ea, #c9f1dd, #d7f5ef, #e4fce9);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .top-right-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 350px;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('images/leaf2.png') no-repeat center;
+      background-size: contain;
+      animation: floatLeaf 12s linear infinite;
+      opacity: 1;
+    }
+
+    .leaf:nth-child(2) { left: 10%; animation-delay: 0s; }
+    .leaf:nth-child(3) { left: 25%; animation-delay: 3s; }
+    .leaf:nth-child(4) { left: 40%; animation-delay: 6s; }
+    .leaf:nth-child(5) { left: 60%; animation-delay: 9s; }
+    .leaf:nth-child(6) { left: 75%; animation-delay: 5s; }
+
+    @keyframes floatLeaf {
+      0% { top: -50px; transform: rotate(0deg); }
+      100% { top: 110%; transform: rotate(360deg); }
+    }
+
+    .logo {
+      display: flex;
+      gap: 10px;
+      font-size: 64px;
+      font-weight: bold;
+      color: #2b8a3e;
+      z-index: 1;
+    }
+
+    .logo span {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s forwards;
+    }
+
+    .logo span:nth-child(1) { animation-delay: 0s; }
+    .logo span:nth-child(2) { animation-delay: 0.1s; }
+    .logo span:nth-child(3) { animation-delay: 0.2s; }
+    .logo span:nth-child(4) { animation-delay: 0.3s; }
+    .logo span:nth-child(5) { animation-delay: 0.4s; }
+    .logo span:nth-child(6) { animation-delay: 0.5s; }
+    .logo span:nth-child(7) { animation-delay: 0.6s; }
+    .logo span:nth-child(8) { animation-delay: 0.7s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tagline {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1.2s;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Login and Dashboard Styling */
+    .login-page, .dashboard {
+      display: none;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: url('images/project.jpg') no-repeat center center/cover;
+      color: white;
+    }
+
+    .login-box {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ffea;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .login-link {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #007bff; /* Darker blue color */
+      color: white;
+      font-size: 18px; /* Increase font size */
+      font-weight: bold; /* Make text bold */
+      border-radius: 5px;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-link:hover {
+      background-color: #0056b3; /* Even darker blue on hover */
+    }
+
+    .dashboard {
+      color: #00ffea;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div class="splash" id="splash">
+    <img src="images/top right corner.png" class="top-right-image" alt="Leaves in top right corner">
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="logo">
+      <span>L</span><span>A</span><span>K</span><span>S</span><span>H</span><span>Y</span><span>A</span><span>M</span>
+    </div>
+    <div class="tagline">One step towards sustainable world</div>
+  </div>
+
+  <!-- Login Page -->
+  <div class="login-page" id="loginPage">
+    <div class="login-box">
+      <h2>Login to Lakshayam</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <!-- Login button styled as a link -->
+      <a href="index.html" class="login-link">Login</a>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="dashboard" id="dashboard">
+    Welcome to Lakshayam Dashboard!
+  </div>
+
+  <script>
+   
+  // Switch to login after 5 seconds
+  setTimeout(() => {
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('loginPage').style.display = 'flex';
+  }, 5000);
+
+  function login() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    // Simple authentication check
+    if(user === 'admin' && pass === '1234') {
+      // Redirect to afterlogin.html
+      window.location.href = 'afterlogin.html';
+    } else {
+      alert('Invalid credentials!');
+    }
+  }
+
+  </script>
+</body>
+</html>
